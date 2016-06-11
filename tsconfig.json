@@ -2,15 +2,13 @@
     "compilerOptions": {
         "module": "commonjs",
         "target": "es6",
-		"moduleResolution": "node",
+        "moduleResolution": "node",
         "noImplicitAny": true,
         "rootDir": ".",
         "jsx": "react",
         "sourceMap": true
     },
     "exclude": [
-        "node_modules",
-        "typings/browser.d.ts",
-        "typings/browser"
+        "node_modules"
     ]
 }
