@@ -20,6 +20,6 @@
   },
   "devDependencies": {
     "typescript": "^1.8.10",
-    "typings": "^0.7.12"
+    "typings": "^1.0.5"
   }
 }
