@@ -1,0 +1,10 @@
+// Place your settings in this file to overwrite default and user settings.
+// See http://stackoverflow.com/a/32604188/266535
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.DS_Store": true,
+        "**/*.map": true,
+        "**/*.js": {"when": "$(basename).tsx"}
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "react-server-example-tsx",
+  "version": "1.0.0",
+  "description": "Example of server-side rendering with React and TypeScript.",
+  "main": "src/server.js",
+  "repository": "styfle/react-server-example-tsx",
+  "scripts": {
+    "start": "node src/server.js",
+    "build": "npm run build:js && npm run build:bundle",
+    "build:js": "tsc",
+    "watch": "tsc --watch --pretty",
+    "build:bundle": "browserify src/browser.js > static/bundle.js",
+    "test": "echo no-tests-found-mmk"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "browserify": "^13.0.0",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^1.8.10",
+    "typings": "^0.7.12"
+  }
+}
