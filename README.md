@@ -1,6 +1,6 @@
 # react-server-example-tsx
 
-[![npm](https://img.shields.io/npm/v/react-server-example-tsx.svg?maxAge=2592000)]()
+[![npm](https://img.shields.io/npm/v/react-server-example-tsx.svg?maxAge=2592000)](https://www.npmjs.com/package/react-server-example-tsx)
 [![Dependency Status](https://david-dm.org/styfle/react-server-example-tsx.svg)](https://david-dm.org/styfle/react-server-example-tsx)
 [![devDependency Status](https://david-dm.org/styfle/react-server-example-tsx/dev-status.svg)](https://david-dm.org/styfle/react-server-example-tsx#info=devDependencies)
 
