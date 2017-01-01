@@ -71,7 +71,7 @@ http.createServer((req, res) => {
     }
     else if (req.url === '/bundle.js') {
         res.setHeader('Content-Type', 'text/javascript');
-        fs.readFile('./static/bundle.js', (err, data) => {
+        fs.readFile('./src/bundle.js', (err, data) => {
             if (err) {
                 throw err;
             }

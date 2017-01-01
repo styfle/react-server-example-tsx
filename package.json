@@ -9,7 +9,7 @@
     "build": "npm run build:js && npm run build:bundle",
     "build:js": "tsc",
     "watch": "tsc --watch --pretty",
-    "build:bundle": "browserify src/browser.js > static/bundle.js",
+    "build:bundle": "browserify src/browser.js > src/bundle.js",
     "test": "echo no-tests-found-mmk"
   },
   "license": "MIT",

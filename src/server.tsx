@@ -22,7 +22,7 @@ http.createServer((req, res) => {
     console.log(`${req.httpVersion} ${req.method} ${req.url}`);
     if (req.url === '/') {
         res.setHeader('Content-Type', 'text/html');
-        
+
         let html = `<!DOCTYPE html>
         <html>
             <head>
@@ -39,7 +39,7 @@ http.createServer((req, res) => {
                 <script src="/bundle.js"></script>
             </body>
         </html>`;
-        
+
         /*
         fs.readFile('./src/style.css', 'utf8', (err, css) => {
             if (err) { throw err; }
@@ -48,7 +48,7 @@ http.createServer((req, res) => {
             fs.writeFile('./output.css', output);
         });
         */
-        
+
         res.end(html)
     } else if (req.url === '/app-props.json') {
         res.setHeader('Content-Type', 'application/json');
@@ -67,7 +67,7 @@ http.createServer((req, res) => {
         });
     } else if (req.url === '/bundle.js') {
         res.setHeader('Content-Type', 'text/javascript');
-        fs.readFile('./static/bundle.js', (err, data) => {
+        fs.readFile('./src/bundle.js', (err, data) => {
             if (err) { throw err; }
             res.end(data);
         });
