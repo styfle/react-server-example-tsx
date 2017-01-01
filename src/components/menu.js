@@ -1,6 +1,6 @@
 "use strict";
-const React = require('react');
-const menu_item_1 = require('./menu-item');
+const React = require("react");
+const menu_item_1 = require("./menu-item");
 const data = [
     {
         id: 'dashboards',
@@ -52,7 +52,7 @@ class Menu extends React.Component {
         this.setState({ isVisible: isVisible });
     }
     render() {
-        return (React.createElement("ul", {role: "navigation", className: "clearfix"}, data.map((o, i) => React.createElement(menu_item_1.default, {key: i, id: o.id, text: o.text, href: o.href, subitems: o.subitems, onClick: this.handleClick, isVisible: this.state.isVisible[o.id]}))));
+        return (React.createElement("ul", { role: "navigation", className: "clearfix" }, data.map((o, i) => React.createElement(menu_item_1.default, { key: i, id: o.id, text: o.text, href: o.href, subitems: o.subitems, onClick: this.handleClick, isVisible: this.state.isVisible[o.id] }))));
     }
 }
 Object.defineProperty(exports, "__esModule", { value: true });

@@ -1,7 +1,7 @@
 "use strict";
-const React = require('react');
-const ReactDOM = require('react-dom');
-const app_1 = require('./components/app');
+const React = require("react");
+const ReactDOM = require("react-dom");
+const app_1 = require("./components/app");
 fetch('/app-props.json')
     .then(o => o.json())
     .then((props) => {

@@ -1,8 +1,8 @@
 "use strict";
-const React = require('react');
-const header_1 = require('./header');
-const button_1 = require('./button');
-const main_1 = require('./main');
+const React = require("react");
+const header_1 = require("./header");
+const button_1 = require("./button");
+const main_1 = require("./main");
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -30,8 +30,14 @@ class App extends React.Component {
         });
     }
     render() {
-        var listuff = this.state.items.map((item, i) => React.createElement("li", {key: i}, item));
-        return (React.createElement("div", {id: "app"}, React.createElement(header_1.default, null), React.createElement(main_1.default, null, React.createElement("h1", null, "Hello world"), React.createElement("ul", null, listuff), React.createElement(button_1.default, {onClick: this.handleAdd, disabled: this.state.disabled, className: "blue-btn", value: "Add Item Button"}), React.createElement(button_1.default, {onClick: this.handleSort, disabled: this.state.disabled, className: "gold-btn", value: "Sort Items"}))));
+        var listuff = this.state.items.map((item, i) => React.createElement("li", { key: i }, item));
+        return (React.createElement("div", { id: "app" },
+            React.createElement(header_1.default, null),
+            React.createElement(main_1.default, null,
+                React.createElement("h1", null, "Hello world"),
+                React.createElement("ul", null, listuff),
+                React.createElement(button_1.default, { onClick: this.handleAdd, disabled: this.state.disabled, className: "blue-btn", value: "Add Item Button" }),
+                React.createElement(button_1.default, { onClick: this.handleSort, disabled: this.state.disabled, className: "gold-btn", value: "Sort Items" }))));
     }
 }
 Object.defineProperty(exports, "__esModule", { value: true });

@@ -1,10 +1,10 @@
 "use strict";
 console.log('Server booting...');
-const http = require('http');
-const React = require('react');
-const ReactDOMServer = require('react-dom/server');
-const fs = require('fs');
-const app_1 = require('./components/app');
+const http = require("http");
+const React = require("react");
+const ReactDOMServer = require("react-dom/server");
+const fs = require("fs");
+const app_1 = require("./components/app");
 const NewApp = React.createFactory(app_1.default);
 const PORT = 3007;
 // Dummy data but you could imagine this would be objects fetched async from a DB,

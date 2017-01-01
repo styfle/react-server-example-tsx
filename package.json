@@ -14,12 +14,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "browserify": "^13.0.0",
-    "react": "^15.0.1",
-    "react-dom": "^15.0.1"
+    "browserify": "^13.1.1",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
   },
   "devDependencies": {
-    "typescript": "^1.8.10",
-    "typings": "^1.0.5"
+    "typescript": "^2.1.4",
+    "typings": "^2.1.0"
   }
 }
