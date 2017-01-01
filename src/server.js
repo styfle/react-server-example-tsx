@@ -5,23 +5,16 @@ const React = require("react");
 const ReactDOMServer = require("react-dom/server");
 const fs = require("fs");
 const app_1 = require("./components/app");
+const db_1 = require("./db");
 const NewApp = React.createFactory(app_1.default);
 const PORT = 3007;
-// Dummy data but you could imagine this would be objects fetched async from a DB,
-const props = {
-    items: [
-        'Item 0',
-        'Item 1',
-        'Item <script>alert(window);</script>',
-        'Item <!--inject!-->',
-        'Just click to add more <b>bold</b>'
-    ]
-};
 http.createServer((req, res) => {
     console.log(`${req.httpVersion} ${req.method} ${req.url}`);
     if (req.url === '/') {
-        res.setHeader('Content-Type', 'text/html');
-        let html = `<!DOCTYPE html>
+        const items = db_1.getItems();
+        const props = { items: items };
+        const reactHtml = ReactDOMServer.renderToString(NewApp(props));
+        const pageHtml = `<!DOCTYPE html>
         <html>
             <head>
                 <meta charset="utf-8" />
@@ -31,23 +24,16 @@ http.createServer((req, res) => {
                 <link rel="stylesheet" href="style.css" />
             </head>
             <body>
-                <div id="content">
-                    ${ReactDOMServer.renderToString(NewApp(props))}
-                </div>
+                <div id="content">${reactHtml}</div>
                 <script src="/bundle.js"></script>
             </body>
         </html>`;
-        /*
-        fs.readFile('./src/style.css', 'utf8', (err, css) => {
-            if (err) { throw err; }
-            var purify = require('purify-css');
-            var output = purify(html, css);
-            fs.writeFile('./output.css', output);
-        });
-        */
-        res.end(html);
+        res.setHeader('Content-Type', 'text/html');
+        res.end(pageHtml);
     }
     else if (req.url === '/app-props.json') {
+        const items = db_1.getItems();
+        const props = { items: items };
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(props));
     }
