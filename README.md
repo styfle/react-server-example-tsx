@@ -1,41 +1,32 @@
 # react-server-example-tsx
 
-A complex example of how to do server-side rendering with
-[React](http://facebook.github.io/react/) and [TypeScript](http://microsoft.github.io/typescript/) so that component code can be
-shared between server and browser, fast initial page loads, search-engine-friendly pages, and of course...type safe!
-
 [![npm](https://img.shields.io/npm/v/react-server-example-tsx.svg?maxAge=2592000)]()
 [![Dependency Status](https://david-dm.org/styfle/react-server-example-tsx.svg)](https://david-dm.org/styfle/react-server-example-tsx)
 [![devDependency Status](https://david-dm.org/styfle/react-server-example-tsx/dev-status.svg)](https://david-dm.org/styfle/react-server-example-tsx#info=devDependencies)
+
+A complex example of how to do server-side rendering with
+[React](http://facebook.github.io/react/) and [TypeScript](http://microsoft.github.io/typescript/) so that component code can be
+shared between server and browser, fast initial page loads, search-engine-friendly pages, and of course...type safe!
 
 ## Prior art
 
 Based on prior work found at [mhart/react-server-example](https://github.com/mhart/react-server-example). It's very good so you should check it out :)
 
-## Example
+## Getting Started
 
-### Install
+Install dependencies, build the code, and run it!
 
 ```sh
 npm install
-```
-
-### Compile
-
-```sh
 npm run build
+npm start
 ```
 
-### Run
-```sh
-npm run start
-```
-
-Then navigate to http://localhost:3007 and click on the button to see some reactive events in action.
+Then navigate to http://localhost:3007 and click on the buttons to see some reactive events in action.
 
 ## Preventing xss
 
-In the example data, there is a xss attack that would normally break when rendering on the . The original code from mhart attempts to sanitize the input with the following:
+In the example data, there is a xss attack that would normally break when attempting to generate html on the server. The original code from mhart attempts to sanitize the input with the following:
 
 ```js
 function safeStringify(obj) {
