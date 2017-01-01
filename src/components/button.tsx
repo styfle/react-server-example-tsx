@@ -4,7 +4,7 @@ interface ButtonProps {
     className: 'gray-btn' | 'dark-gray-btn' | 'blue-btn' | 'gold-btn';
     value: string;
     disabled: boolean;
-    onClick: (e: React.MouseEventHandler) => void;
+    onClick: (e: React.MouseEvent) => void;
 }
 
 export default class Button extends React.Component<ButtonProps, {}> {
@@ -12,9 +12,9 @@ export default class Button extends React.Component<ButtonProps, {}> {
       var className = this.props.className || 'blue';
       var value = this.props.value || 'Do it';
       return (
-        <button type="button" 
+        <button type="button"
                 onClick={this.props.onClick}
-                disabled={this.props.disabled || false} 
+                disabled={this.props.disabled || false}
                 className={this.props.className || 'blue'}>
                 {this.props.value || 'Do it'}
         </button>
