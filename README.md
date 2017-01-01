@@ -35,3 +35,5 @@ function safeStringify(obj) {
 ```
 
 Instead of writing the data in a script tag, I opted for doing 1 extra http request to fetch the data props as json before initializing react in the browser. Note that this means click handlers will not be initialized until the data is returned and react can pick up where it left off after the server render. Ideally this data could be cached so it shouldn't be too slow and the user will not notice any wait.
+
+See [browser.tsx](https://github.com/styfle/react-server-example-tsx/blob/master/src/browser.tsx#L5) for the client-side code and [server.tsx](https://github.com/styfle/react-server-example-tsx/blob/master/src/server.tsx#L16) for the server-side code.
