@@ -4,6 +4,7 @@
         "target": "es6",
         "moduleResolution": "node",
         "noImplicitAny": true,
+        "strictNullChecks": true,
         "rootDir": ".",
         "jsx": "react",
         "sourceMap": true
