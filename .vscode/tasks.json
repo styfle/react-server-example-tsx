@@ -17,11 +17,11 @@
 		},
 		{
 			"taskName": "build",
-			"args": ["run", "build"]
+			"args": ["run", "build", "-s"]
 		},
 		{
 			"taskName": "test",
-			"args": ["run", "test"]
+			"args": ["run", "test", "-s"]
 		}
 	]
 }

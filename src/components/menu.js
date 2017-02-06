@@ -40,19 +40,19 @@ const data = [
 class Menu extends React.Component {
     constructor() {
         super();
+        this.handleClick = (clickedId) => {
+            console.log('clicked menu item', clickedId);
+            let { isVisible } = this.state;
+            data.forEach(o => {
+                isVisible[o.id] = (clickedId === o.id) ? !isVisible[o.id] : false;
+            });
+            this.setState({ isVisible: isVisible });
+        };
         this.state = { isVisible: {} };
-        this.handleClick = this.handleClick.bind(this);
-    }
-    handleClick(clickedId) {
-        console.log('clicked menu item', clickedId);
-        let isVisible = this.state.isVisible;
-        data.forEach(o => {
-            isVisible[o.id] = (clickedId === o.id) ? !isVisible[o.id] : false;
-        });
-        this.setState({ isVisible: isVisible });
     }
     render() {
-        return (React.createElement("ul", { role: "navigation", className: "clearfix" }, data.map((o, i) => React.createElement(menu_item_1.default, { key: i, id: o.id, text: o.text, href: o.href, subitems: o.subitems, onClick: this.handleClick, isVisible: this.state.isVisible[o.id] }))));
+        const { isVisible } = this.state;
+        return (React.createElement("ul", { role: "navigation", className: "clearfix" }, data.map((o, i) => React.createElement(menu_item_1.default, { key: o.id, id: o.id, text: o.text, href: o.href, subitems: o.subitems, onClick: this.handleClick, isVisible: isVisible[o.id] }))));
     }
 }
 Object.defineProperty(exports, "__esModule", { value: true });

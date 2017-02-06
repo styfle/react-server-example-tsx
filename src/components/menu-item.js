@@ -3,19 +3,21 @@ const React = require("react");
 class MenuItem extends React.Component {
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
-    }
-    handleClick() {
-        this.props.onClick(this.props.id);
+        this.handleClick = () => {
+            const { onClick, id } = this.props;
+            if (onClick) {
+                onClick(id);
+            }
+        };
     }
     render() {
-        var subitems = this.props.subitems || [];
-        var style = {
-            display: this.props.isVisible ? 'block' : 'none'
+        const { subitems, href, text, id, isVisible } = this.props;
+        const style = {
+            display: isVisible ? 'block' : 'none'
         };
         return (React.createElement("li", { className: "dropdown", onClick: this.handleClick },
-            React.createElement("a", { id: this.props.id, role: "button", "data-toggle": "dropdown", href: this.props.href }, this.props.text),
-            React.createElement("ul", { className: "dropdown-menu", role: "menu", "aria-labelledby": this.props.id, style: style }, subitems.map((o, i) => React.createElement("li", { key: i },
+            React.createElement("a", { id: this.props.id, role: "button", "data-toggle": "dropdown", href: href }, text),
+            React.createElement("ul", { className: "dropdown-menu", role: "menu", "aria-labelledby": id, style: style }, (subitems || []).map((o, i) => React.createElement("li", { key: i },
                 React.createElement("a", { href: o.href }, o.text))))));
     }
 }

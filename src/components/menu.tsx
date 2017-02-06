@@ -46,12 +46,11 @@ export default class Menu extends React.Component<{}, MenuState> {
     constructor() {
         super();
         this.state = {isVisible: {}};
-        this.handleClick = this.handleClick.bind(this);
     }
     
-    handleClick(clickedId: string) {
+    handleClick = (clickedId: string) => {
         console.log('clicked menu item', clickedId);
-        let isVisible = this.state.isVisible;
+        let { isVisible } = this.state;
         
         data.forEach(o => {
             isVisible[o.id] = (clickedId === o.id) ? !isVisible[o.id] : false;
@@ -61,10 +60,11 @@ export default class Menu extends React.Component<{}, MenuState> {
     }
 
     render() {
+        const { isVisible } = this.state;
         return (
             <ul role="navigation" className="clearfix">
             {data.map( (o,i) => 
-                <MenuItem key={i} id={o.id} text={o.text} href={o.href} subitems={o.subitems} onClick={this.handleClick} isVisible={this.state.isVisible[o.id]} /> 
+                <MenuItem key={o.id} id={o.id} text={o.text} href={o.href} subitems={o.subitems} onClick={this.handleClick} isVisible={isVisible[o.id]} /> 
             )}
             </ul>
         );

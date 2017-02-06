@@ -1,8 +1,0 @@
-{
-  "globalDependencies": {
-    "node": "registry:dt/node#6.0.0+20160608110640",
-    "react": "registry:dt/react#0.14.0+20160602151522",
-    "react-dom": "registry:dt/react-dom#0.14.0+20160412154040",
-    "whatwg-fetch": "registry:dt/whatwg-fetch#0.0.0+20160524142046"
-  }
-}

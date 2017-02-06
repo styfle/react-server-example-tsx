@@ -9,8 +9,8 @@ interface AppProps {
 }
 
 interface AppState {
-    items?: string[],
-    disabled?: boolean;
+    items: string[],
+    disabled: boolean;
 }
 
 export default class App extends React.Component<AppProps, AppState> {
@@ -20,9 +20,6 @@ export default class App extends React.Component<AppProps, AppState> {
         // was first rendered. We also want the button to be disabled until the
         // component has fully mounted on the DOM
         this.state = {items: this.props.items, disabled: true};
-        
-        this.handleAdd = this.handleAdd.bind(this);
-        this.handleSort = this.handleSort.bind(this);
     }
 
     // Once the component has been mounted, we can enable the button
@@ -32,13 +29,13 @@ export default class App extends React.Component<AppProps, AppState> {
 
     // Update the state whenever its clicked by adding a new item to
     // the list - imagine this being updated with the results of AJAX calls, etc
-    handleAdd() {
+    handleAdd = () => {
         this.setState({
             items: this.state.items.concat('Item #' + this.state.items.length)
         });
     }
     
-    handleSort() {
+    handleSort = () => {
         this.setState({
             items: this.state.items.sort()
         });

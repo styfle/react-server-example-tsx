@@ -6,28 +6,26 @@ const main_1 = require("./main");
 class App extends React.Component {
     constructor(props) {
         super(props);
+        // Update the state whenever its clicked by adding a new item to
+        // the list - imagine this being updated with the results of AJAX calls, etc
+        this.handleAdd = () => {
+            this.setState({
+                items: this.state.items.concat('Item #' + this.state.items.length)
+            });
+        };
+        this.handleSort = () => {
+            this.setState({
+                items: this.state.items.sort()
+            });
+        };
         // We initialise its state by using the `props` that were passed in when it
         // was first rendered. We also want the button to be disabled until the
         // component has fully mounted on the DOM
         this.state = { items: this.props.items, disabled: true };
-        this.handleAdd = this.handleAdd.bind(this);
-        this.handleSort = this.handleSort.bind(this);
     }
     // Once the component has been mounted, we can enable the button
     componentDidMount() {
         this.setState({ disabled: false });
-    }
-    // Update the state whenever its clicked by adding a new item to
-    // the list - imagine this being updated with the results of AJAX calls, etc
-    handleAdd() {
-        this.setState({
-            items: this.state.items.concat('Item #' + this.state.items.length)
-        });
-    }
-    handleSort() {
-        this.setState({
-            items: this.state.items.sort()
-        });
     }
     render() {
         var listuff = this.state.items.map((item, i) => React.createElement("li", { key: i }, item));
