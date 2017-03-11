@@ -8,6 +8,9 @@ import {getItems} from './db';
 const NewApp = React.createFactory(AppComponent);
 const PORT = 3007;
 
+const isProd = process.env.NODE_ENV === 'production';
+console.log('prod', isProd);
+
 http.createServer((req, res) => {
     console.log(`${req.httpVersion} ${req.method} ${req.url}`);
     if (req.url === '/') {
@@ -26,6 +29,7 @@ http.createServer((req, res) => {
             <body>
                 <div id="content">${reactHtml}</div>
                 <script src="/react.js"></script>
+                <script src="/react-dom.js"></script>
                 <script src="/bundle.js"></script>
             </body>
         </html>`;
@@ -38,20 +42,26 @@ http.createServer((req, res) => {
         res.end(JSON.stringify(props));
     } else if (req.url === '/react.js') {
         res.setHeader('Content-Type', 'text/javascript');
-        fs.readFile('./node_modules/react/dist/react.js', (err, data) => {
-            if (err) { throw err; }
+        fs.readFile(`./node_modules/react/dist/react${isProd ? '.min.js' : '.js'}`, (err, data) => {
+            if (err) { console.error(err); }
+            res.end(data);
+        });
+    } else if (req.url === '/react-dom.js') {
+        res.setHeader('Content-Type', 'text/javascript');
+        fs.readFile(`./node_modules/react-dom/dist/react-dom${isProd ? '.min.js' : '.js'}`, (err, data) => {
+            if (err) { console.error(err); }
             res.end(data);
         });
     } else if (req.url === '/style.css') {
         res.setHeader('Content-Type', 'text/css');
         fs.readFile('./src/style.css', (err, data) => {
-            if (err) { throw err; }
+            if (err) { console.error(err); }
             res.end(data);
         });
     } else if (req.url === '/bundle.js') {
         res.setHeader('Content-Type', 'text/javascript');
-        fs.readFile('./dist/bundle.js', (err, data) => {
-            if (err) { throw err; }
+        fs.readFile('./dist/browser.js', (err, data) => {
+            if (err) { console.error(err); }
             res.end(data);
         });
     } else {
