@@ -25,6 +25,7 @@ http.createServer((req, res) => {
             </head>
             <body>
                 <div id="content">${reactHtml}</div>
+                <script src="/react.js"></script>
                 <script src="/bundle.js"></script>
             </body>
         </html>`;
@@ -49,7 +50,7 @@ http.createServer((req, res) => {
         });
     } else if (req.url === '/bundle.js') {
         res.setHeader('Content-Type', 'text/javascript');
-        fs.readFile('./src/bundle.js', (err, data) => {
+        fs.readFile('./dist/bundle.js', (err, data) => {
             if (err) { throw err; }
             res.end(data);
         });
