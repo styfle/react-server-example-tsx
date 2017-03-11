@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const menu_1 = require("./menu");
 class Header extends React.Component {
@@ -11,6 +12,5 @@ class Header extends React.Component {
             React.createElement("button", { className: "nav-toggle", id: "nav-toggle" }, "Menu")));
     }
 }
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Header;
 //# sourceMappingURL=header.js.map

@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const menu_item_1 = require("./menu-item");
 const data = [
@@ -55,6 +56,5 @@ class Menu extends React.Component {
         return (React.createElement("ul", { role: "navigation", className: "clearfix" }, data.map((o, i) => React.createElement(menu_item_1.default, { key: o.id, id: o.id, text: o.text, href: o.href, subitems: o.subitems, onClick: this.handleClick, isVisible: isVisible[o.id] }))));
     }
 }
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = Menu;
 //# sourceMappingURL=menu.js.map

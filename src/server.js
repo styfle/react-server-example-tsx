@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 console.log('Server booting...');
 const http = require("http");
 const React = require("react");

@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 const header_1 = require("./header");
 const button_1 = require("./button");
@@ -38,6 +39,5 @@ class App extends React.Component {
                 React.createElement(button_1.default, { onClick: this.handleSort, disabled: this.state.disabled, className: "gold-btn", value: "Sort Items" }))));
     }
 }
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = App;
 //# sourceMappingURL=app.js.map

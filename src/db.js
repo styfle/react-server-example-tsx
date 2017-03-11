@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function getItems() {
     // This is a dummy data example to demonstrate
     // all data is sanitized safely, however

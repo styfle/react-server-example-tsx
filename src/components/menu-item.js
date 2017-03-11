@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const React = require("react");
 class MenuItem extends React.Component {
     constructor(props) {
@@ -21,6 +22,5 @@ class MenuItem extends React.Component {
                 React.createElement("a", { href: o.href }, o.text))))));
     }
 }
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = MenuItem;
 //# sourceMappingURL=menu-item.js.map
