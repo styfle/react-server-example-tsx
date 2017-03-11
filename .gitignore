@@ -3,3 +3,5 @@ npm-debug.log
 v8.log
 dist
 src/bundle.js
+src/*.js
+src/*.js.map
