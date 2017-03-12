@@ -5,11 +5,9 @@
   "main": "src/server.js",
   "repository": "styfle/react-server-example-tsx",
   "scripts": {
-    "start": "node src/server.js",
-    "build": "npm run build:js && npm run build:bundle",
-    "build:js": "tsc",
-    "watch": "tsc --watch --pretty",
-    "build:bundle": "browserify src/browser.js > src/bundle.js",
+    "start": "node dist/server.js",
+    "build": "webpack",
+    "watch": "webpack --watch",
     "test": "echo no-tests-found-mmk"
   },
   "license": "MIT",
@@ -21,7 +19,9 @@
     "@types/node": "^7.0.8",
     "@types/react": "^15.0.16",
     "@types/react-dom": "^0.14.23",
-    "browserify": "^14.1.0",
-    "typescript": "^2.2.1"
+    "awesome-typescript-loader": "^3.1.2",
+    "source-map-loader": "^0.2.0",
+    "typescript": "^2.2.1",
+    "webpack": "^2.2.1"
   }
 }

@@ -1,3 +1,7 @@
+interface AppProps {
+    items: string[];
+}
+
 interface SubItemProps {
     href: string;
     text: string;

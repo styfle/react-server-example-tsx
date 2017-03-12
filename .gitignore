@@ -1,4 +1,6 @@
 node_modules
 npm-debug.log
 v8.log
-src/bundle.js
+dist
+src/*.js
+src/*.js.map
