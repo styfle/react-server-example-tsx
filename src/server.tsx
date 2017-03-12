@@ -44,12 +44,14 @@ http.createServer((req, res) => {
         res.end(JSON.stringify(props));
     } else if (req.url === routes.react) {
         res.setHeader('Content-Type', 'text/javascript');
+        res.setHeader('Cache-Control', 'public, max-age=86400');
         fs.readFile(`./node_modules/react/dist/react${isProd ? '.min.js' : '.js'}`, (err, data) => {
             if (err) { console.error(err); }
             res.end(data);
         });
     } else if (req.url === routes.reactdom) {
         res.setHeader('Content-Type', 'text/javascript');
+        res.setHeader('Cache-Control', 'public, max-age=86400');
         fs.readFile(`./node_modules/react-dom/dist/react-dom${isProd ? '.min.js' : '.js'}`, (err, data) => {
             if (err) { console.error(err); }
             res.end(data);
@@ -68,7 +70,7 @@ http.createServer((req, res) => {
         });
     } else {
         res.setHeader('Content-Type', 'text/plain');
-        res.statusCode = 404
+        res.statusCode = 404;
         res.end('Not Found');
     }
 
