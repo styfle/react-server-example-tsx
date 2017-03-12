@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node dist/server.js",
     "build": "webpack",
+    "watch": "webpack --watch",
     "test": "echo no-tests-found-mmk"
   },
   "license": "MIT",
