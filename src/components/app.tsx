@@ -4,10 +4,6 @@ import Header from './header';
 import Button from './button';
 import Main from './main';
 
-interface AppProps {
-    items: string[]
-}
-
 interface AppState {
     items: string[],
     disabled: boolean;
