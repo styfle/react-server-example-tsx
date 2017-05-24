@@ -1,6 +1,6 @@
 {
   "name": "react-server-example-tsx",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Example of server-side rendering with React and TypeScript.",
   "main": "dist/server.js",
   "repository": "styfle/react-server-example-tsx",
