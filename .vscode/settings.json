@@ -7,6 +7,7 @@
         "**/.DS_Store": true,
         "**/*.map": true,
         "**/*.js": { "when": "$(basename).ts"},
-        "**/*?.js": { "when": "$(basename).tsx"}
+        "**/*?.js": { "when": "$(basename).tsx"},
+        "dist": true
     }
 }
