@@ -1,14 +1,12 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import AppComponent from './components/app';
-import * as routes from './routes';
+import App from './components/app';
+import { propsUrl, containerId } from './routes';
 
-fetch(routes.props)
+fetch(propsUrl)
     .then(o => o.json())
-    .then((data: any) => {
-        const props = data as AppProps;
-        const NewApp = React.createFactory(AppComponent);
-        const app = NewApp(props);
-        const el = document.getElementById(routes.containerId);
+    .then((props: AppProps) => {
+        const app = (<App {...props} />);
+        const el = document.getElementById(containerId);
         ReactDOM.render(app, el);
     });

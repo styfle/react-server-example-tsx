@@ -1,6 +1,6 @@
-export const react = '/react.js';
-export const reactdom = '/react-dom.js';
-export const styles = '/style.css';
-export const bundle = '/bundle.js';
-export const props = '/app-props.json';
+export const reactUrl = '/react.js';
+export const reactDomUrl = '/react-dom.js';
+export const stylesUrl = '/style.css';
+export const bundleUrl = '/bundle.js';
+export const propsUrl = '/app-props.json';
 export const containerId = 'content';
