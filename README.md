@@ -15,11 +15,12 @@ Additionally, I use a combination between [TypeScript Handbook](https://www.type
 
 ## Getting Started
 
-Install dependencies, build the code, and run it!
+Install dependencies, build the code, test it, and run it!
 
 ```sh
 npm install
 npm run build
+npm run test
 npm start
 ```
 

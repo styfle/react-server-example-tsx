@@ -8,10 +8,11 @@
     "start": "node dist/server.js",
     "build": "webpack",
     "watch": "webpack --watch",
-    "test": "bundlesize -f dist/server.js -s 100kB"
+    "test": "bundlesize -f dist/browser.js -s 15kB"
   },
   "license": "MIT",
   "dependencies": {
+    "bundlesize": "^0.14.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
