@@ -4,6 +4,7 @@
 [![Downloads](https://img.shields.io/npm/dt/react-server-example-tsx.svg)](https://www.npmjs.com/package/react-server-example-tsx)
 [![Dependency Status](https://david-dm.org/styfle/react-server-example-tsx.svg)](https://david-dm.org/styfle/react-server-example-tsx)
 [![devDependency Status](https://david-dm.org/styfle/react-server-example-tsx/dev-status.svg)](https://david-dm.org/styfle/react-server-example-tsx#info=devDependencies)
+[![Build Status](https://travis-ci.org/styfle/react-server-example-tsx.svg?branch=master)](https://travis-ci.org/styfle/react-server-example-tsx)
 
 A complex example of how to do server-side rendering with
 [React](http://facebook.github.io/react/) and [TypeScript](https://www.typescriptlang.org/) so that component code can be shared between server and browser (also known as isomorphic javascript). SSR leads to fast initial page loads, search-engine-friendly pages, and of course...its all type safe!
