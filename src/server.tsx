@@ -4,7 +4,7 @@ import { renderToString } from 'react-dom/server';
 import * as fs from 'fs';
 import AppComponent from './components/app';
 import { getItems } from './db';
-import { faviconUrl, stylesUrl, reactUrl, reactDomUrl, bundleUrl, propsUrl, containerId } from './constants';
+import { faviconUrl, stylesUrl, reactUrl, reactDomUrl, browserUrl, browserMapUrl, propsUrl, containerId } from './constants';
 
 console.log('Server booting...');
 const isProd = process.env.NODE_ENV === 'production';
@@ -31,7 +31,7 @@ createServer((req, res) => {
                 <div id="${containerId}">${reactHtml}</div>
                 <script src="${reactUrl}"></script>
                 <script src="${reactDomUrl}"></script>
-                <script src="${bundleUrl}"></script>
+                <script src="${browserUrl}"></script>
             </body>
         </html>`;
         res.setHeader('Content-Type', 'text/html');
@@ -61,9 +61,15 @@ createServer((req, res) => {
             if (err) { console.error(err); }
             res.end(data);
         });
-    } else if (req.url === bundleUrl) {
+    } else if (req.url === browserUrl) {
         res.setHeader('Content-Type', 'text/javascript');
         fs.readFile('./dist/browser.js', (err, data) => {
+            if (err) { console.error(err); }
+            res.end(data);
+        });
+    } else if (req.url === browserMapUrl) {
+        res.setHeader('Content-Type', 'text/javascript');
+        fs.readFile('./dist/browser.js.map', (err, data) => {
             if (err) { console.error(err); }
             res.end(data);
         });
