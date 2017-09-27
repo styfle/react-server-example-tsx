@@ -12,6 +12,7 @@ const PORT = 3007;
 
 const isProd = process.env.NODE_ENV === 'production';
 console.log('Production optimization enabled? ', isProd);
+const suffix = isProd ? '.production.min.js' : '.development.js';
 
 http.createServer((req, res) => {
     console.log(`${req.httpVersion} ${req.method} ${req.url}`);
@@ -45,14 +46,14 @@ http.createServer((req, res) => {
     } else if (req.url === routes.reactUrl) {
         res.setHeader('Content-Type', 'text/javascript');
         res.setHeader('Cache-Control', 'public, max-age=86400');
-        fs.readFile(`./node_modules/react/dist/react${isProd ? '.min.js' : '.js'}`, (err, data) => {
+        fs.readFile(`./node_modules/react/umd/react${suffix}`, (err, data) => {
             if (err) { console.error(err); }
             res.end(data);
         });
     } else if (req.url === routes.reactDomUrl) {
         res.setHeader('Content-Type', 'text/javascript');
         res.setHeader('Cache-Control', 'public, max-age=86400');
-        fs.readFile(`./node_modules/react-dom/dist/react-dom${isProd ? '.min.js' : '.js'}`, (err, data) => {
+        fs.readFile(`./node_modules/react-dom/umd/react-dom${suffix}`, (err, data) => {
             if (err) { console.error(err); }
             res.end(data);
         });
