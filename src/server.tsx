@@ -4,7 +4,7 @@ import { renderToString } from 'react-dom/server';
 import * as fs from 'fs';
 import AppComponent from './components/app';
 import { getItems } from './db';
-import { faviconUrl, stylesUrl, reactUrl, reactDomUrl, bundleUrl, propsUrl, containerId } from './routes';
+import { faviconUrl, stylesUrl, reactUrl, reactDomUrl, bundleUrl, propsUrl, containerId } from './constants';
 
 console.log('Server booting...');
 const isProd = process.env.NODE_ENV === 'production';
