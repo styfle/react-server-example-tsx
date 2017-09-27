@@ -1,7 +1,7 @@
 {
   "name": "react-server-example-tsx",
   "version": "3.1.0",
-  "description": "Example of server-side rendering with React and TypeScript.",
+  "description": "Boilerplate for isomorphic web app with React server-side rendering in TypeScript.",
   "main": "dist/server.js",
   "repository": "styfle/react-server-example-tsx",
   "scripts": {
