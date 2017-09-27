@@ -1,7 +1,8 @@
 import { createServer } from 'http';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
-import * as fs from 'fs';
+import { readFile } from 'fs';
+import { promisify } from 'util';
 import AppComponent from './components/app';
 import { getItems } from './db';
 import { faviconUrl, stylesUrl, reactUrl, reactDomUrl, browserUrl, browserMapUrl, propsUrl, containerId } from './constants';
@@ -10,12 +11,14 @@ console.log('Server booting...');
 const isProd = process.env.NODE_ENV === 'production';
 console.log('Production optimization enabled? ', isProd);
 const App = React.createFactory(AppComponent);
-const PORT = 3007;
+const PORT = process.env.PORT || 3007;
 const suffix = isProd ? '.production.min.js' : '.development.js';
+const readFileAsync = promisify(readFile);
 
-createServer((req, res) => {
-    console.log(`${req.httpVersion} ${req.method} ${req.url}`);
-    if (req.url === '/') {
+createServer(async (req, res) => {
+    const { httpVersion, method, url } = req;
+    console.log(`${httpVersion} ${method} ${url}`);
+    if (url === '/') {
         const props: AppProps = { items: getItems() };
         const reactHtml = renderToString(App(props));
         const pageHtml = `<!DOCTYPE html>
@@ -36,49 +39,34 @@ createServer((req, res) => {
         </html>`;
         res.setHeader('Content-Type', 'text/html');
         res.end(pageHtml)
-    } else if (req.url === propsUrl) {
+    } else if (url === propsUrl) {
         const items = getItems();
         const props = {items: items};
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(props));
-    } else if (req.url === reactUrl) {
+    } else if (url === reactUrl) {
         res.setHeader('Content-Type', 'text/javascript');
         res.setHeader('Cache-Control', 'public, max-age=86400');
-        fs.readFile(`./node_modules/react/umd/react${suffix}`, (err, data) => {
-            if (err) { console.error(err); }
-            res.end(data);
-        });
-    } else if (req.url === reactDomUrl) {
+        const data = await readFileAsync(`./node_modules/react/umd/react${suffix}`);
+        res.end(data);
+    } else if (url === reactDomUrl) {
         res.setHeader('Content-Type', 'text/javascript');
         res.setHeader('Cache-Control', 'public, max-age=86400');
-        fs.readFile(`./node_modules/react-dom/umd/react-dom${suffix}`, (err, data) => {
-            if (err) { console.error(err); }
-            res.end(data);
-        });
-    } else if (req.url === stylesUrl) {
+        const data = await readFileAsync(`./node_modules/react-dom/umd/react-dom${suffix}`);
+        res.end(data);
+    } else if (url === stylesUrl) {
         res.setHeader('Content-Type', 'text/css');
-        fs.readFile('./src/style.css', (err, data) => {
-            if (err) { console.error(err); }
-            res.end(data);
-        });
-    } else if (req.url === browserUrl) {
+        const data = await readFileAsync('./src/style.css');
+        res.end(data);
+    } else if (url === browserUrl || url === browserMapUrl) {
         res.setHeader('Content-Type', 'text/javascript');
-        fs.readFile('./dist/browser.js', (err, data) => {
-            if (err) { console.error(err); }
-            res.end(data);
-        });
-    } else if (req.url === browserMapUrl) {
-        res.setHeader('Content-Type', 'text/javascript');
-        fs.readFile('./dist/browser.js.map', (err, data) => {
-            if (err) { console.error(err); }
-            res.end(data);
-        });
+        const data = await readFileAsync(`./dist${url}`);
+        res.end(data);
     } else {
         res.setHeader('Content-Type', 'text/plain');
         res.statusCode = 404;
-        res.end('Not Found');
+        res.end('404 Not Found');
     }
-
 }).listen(PORT, () => {
     console.log(`Listening on ${PORT}...`)
 });
