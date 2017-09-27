@@ -7,13 +7,10 @@
 [![Build Status](https://travis-ci.org/styfle/react-server-example-tsx.svg?branch=master)](https://travis-ci.org/styfle/react-server-example-tsx)
 
 A complex example of how to do server-side rendering with
-[React](http://facebook.github.io/react/) and [TypeScript](https://www.typescriptlang.org/) so that component code can be shared between server and browser (also known as isomorphic javascript). SSR leads to fast initial page loads, search-engine-friendly pages, and of course...its all type safe!
+[React](http://facebook.github.io/react/) and [TypeScript](https://www.typescriptlang.org/) so that component code can be shared between server and browser (also known as isomorphic javascript).
 
-## Prior art
+Server-Side Rendering (SSR) leads to fast initial page loads, search-engine-friendly pages, and of course...its all type safe!
 
-Based on prior work found at [mhart/react-server-example](https://github.com/mhart/react-server-example). It's very good so you should check it out :)
-
-Additionally, I use a combination between [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html#create-a-webpack-configuration-file) and [awesome-typescript-loader](https://github.com/s-panferov/awesome-typescript-loader#configuration) when I switched from browserify14 to webpack2.
 
 ## Getting Started
 
@@ -30,16 +27,17 @@ Then navigate to http://localhost:3007 and click on the buttons to see some reac
 
 ## Preventing XSS
 
-In the example data, there is a xss attack that would normally break when attempting to generate html on the server. The original code from `mhart` attempts to sanitize the input with the following:
+The original code from `mhart` attempts to [sanitize the props](https://github.com/mhart/react-server-example/blob/feada6183fe2fbb1a746492e157febe49eeafdcd/server.js#L106) by escaping and then inserting into a `<script>` tag.
 
-```js
-function safeStringify(obj) {
-	  return JSON.stringify(obj).replace(/<\/script/g, '<\\/script').replace(/<!--/g, '<\\!--')
-}
-```
-
-Instead of writing the data in a script tag, I opted for doing *1 extra http request* to fetch the data props as json before initializing react in the browser. Note that this means click handlers will not be initialized until the data is returned and React can pick up where it left off after the server-server render and attach the click even handlers.
+I avoided this by performing *1 extra http request* to fetch the props as json before initializing React in the browser. This means that click handlers will not be initialized until the data is returned and React can pick up where it left off after the server-side render and attach the click even handlers. This is the purpose of `ReactDOM.hydrate`.
 
 See [browser.tsx](https://github.com/styfle/react-server-example-tsx/blob/master/src/browser.tsx) for the client-side code.
 
 See [server.tsx](https://github.com/styfle/react-server-example-tsx/blob/master/src/server.tsx) for the server-side code.
+
+
+## Prior art
+
+Based on prior work found at [mhart/react-server-example](https://github.com/mhart/react-server-example). It's very good so you should check it out :)
+
+Additionally, I use a combination between [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html#create-a-webpack-configuration-file) and [awesome-typescript-loader](https://github.com/s-panferov/awesome-typescript-loader#configuration) when I switched from browserify v1.4.x to webpack v2.0.x (now webpack v3.x).
