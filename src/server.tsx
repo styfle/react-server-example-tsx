@@ -1,6 +1,6 @@
 import { createServer } from 'http';
 import { createFactory } from 'react';
-import { renderToNodeStream } from 'react-dom/server';
+import * as ReactDomServer from 'react-dom/server';
 import { readFile } from 'fs';
 import { promisify } from 'util';
 import AppComponent from './components/app';
@@ -33,6 +33,7 @@ createServer(async (req, res) => {
         <body>
         <div id="${containerId}">`);
         const props: AppProps = { items: getItems() };
+        const renderToNodeStream = ReactDomServer.renderToNodeStream as any;
         const stream = renderToNodeStream(App(props)) as any;
         stream.pipe(res, { end: false });
         stream.on('end', () => {
