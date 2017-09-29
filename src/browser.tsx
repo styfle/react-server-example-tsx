@@ -8,6 +8,6 @@ fetch(propsUrl)
     .then((props: AppProps) => {
         const app = (<App {...props} />);
         const el = document.getElementById(containerId);
-        const hydrate = ReactDOM.hydrate as any;
-        hydrate(app, el);
+        const dom = ReactDOM as any;
+        dom.hydrate(app, el);
     });

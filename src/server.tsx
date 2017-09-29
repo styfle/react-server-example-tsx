@@ -33,8 +33,8 @@ createServer(async (req, res) => {
             <body>
             <div id="${containerId}">`);
             const props: AppProps = { items: getItems() };
-            const renderToNodeStream = ReactDomServer.renderToNodeStream as any;
-            const stream = renderToNodeStream(App(props)) as any;
+            const domserver = ReactDomServer as any;
+            const stream = domserver.renderToNodeStream(App(props));
             stream.pipe(res, { end: false });
             stream.on('end', () => {
             res.end(`</div>
