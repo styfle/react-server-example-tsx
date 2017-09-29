@@ -38,21 +38,28 @@ export default class App extends React.Component<AppProps, AppState> {
     }
     
     render() {
+        const { items } = this.state;
 
-        var listuff = this.state.items.map((item, i) => <li key={i}>{item}</li>);
-        
-        return (
-            <div id="app">
-                <Header/>
-                <Main>
-                    <h1>Hello world</h1>
-                    <ul>
-                        {listuff}
-                    </ul>
-                    <Button onClick={this.handleAdd} disabled={this.state.disabled} className="blue-btn" value="Add Item Button" />
-                    <Button onClick={this.handleSort} disabled={this.state.disabled} className="gold-btn" value="Sort Items" />
-                </Main>
-            </div>
-        )
+        return (<div className="container">
+            <Header/>
+            <Main>
+                <ul>
+                    {items.map((item, i) =>
+                        <li key={i}>{item}</li>
+                    )}
+                </ul>
+                <Button
+                    onClick={this.handleAdd}
+                    disabled={this.state.disabled}
+                    type="primary"
+                    value="Add Item" />
+                <br/>
+                <Button
+                    onClick={this.handleSort}
+                    disabled={this.state.disabled}
+                    type="warning"
+                    value="Sort Items" />
+            </Main>
+        </div>);
     }
 }

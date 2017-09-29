@@ -62,9 +62,16 @@ export default class Menu extends React.Component<{}, MenuState> {
     render() {
         const { isVisible } = this.state;
         return (
-            <ul role="navigation" className="clearfix">
+            <ul role="navigation">
             {data.map( (o,i) => 
-                <MenuItem key={o.id} id={o.id} text={o.text} href={o.href} subitems={o.subitems} onClick={this.handleClick} isVisible={isVisible[o.id]} /> 
+                <MenuItem
+                    key={o.id}
+                    id={o.id}
+                    text={o.text}
+                    href={o.href}
+                    subitems={o.subitems}
+                    onClick={this.handleClick}
+                    isVisible={isVisible[o.id]} />
             )}
             </ul>
         );
