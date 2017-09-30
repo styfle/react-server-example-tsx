@@ -1,19 +1,17 @@
 import { createServer, IncomingMessage, ServerResponse } from 'http';
 import { createFactory } from 'react';
 import * as ReactDomServer from 'react-dom/server';
-import { readFile } from 'fs';
-import { promisify } from 'util';
-import AppComponent from './components/app';
-import { getItems } from './db';
+import App from './components/app';
+import { fetchProps } from './props';
 import { faviconUrl, stylesUrl, reactUrl, reactDomUrl, browserUrl, browserMapUrl, propsUrl, containerId } from './constants';
+import { readFileAsync } from './file';
 
 console.log('Server booting...');
 const isProd = process.env.NODE_ENV === 'production';
 console.log('Production optimization enabled? ', isProd);
-const App = createFactory(AppComponent);
+const AppFactory = createFactory(App);
 const PORT = process.env.PORT || 3007;
 const suffix = isProd ? '.production.min.js' : '.development.js';
-const readFileAsync = promisify(readFile);
 
 createServer(async (req, res) => {
     const { httpVersion, method, url } = req;
@@ -32,9 +30,8 @@ createServer(async (req, res) => {
             </head>
             <body>
             <div id="${containerId}">`);
-            const props: AppProps = { items: getItems() };
             const domserver = ReactDomServer as any;
-            const stream = domserver.renderToNodeStream(App(props));
+            const stream = domserver.renderToNodeStream(AppFactory(fetchProps()));
             stream.pipe(res, { end: false });
             stream.on('end', () => {
             res.end(`</div>
@@ -45,10 +42,8 @@ createServer(async (req, res) => {
             </html>`);
             });
         } else if (url === propsUrl) {
-            const items = getItems();
-            const props: AppProps = { items: items };
             res.setHeader('Content-Type', 'application/json');
-            res.end(JSON.stringify(props));
+            res.end(JSON.stringify(fetchProps()));
         } else if (url === reactUrl) {
             res.setHeader('Content-Type', 'text/javascript');
             res.setHeader('Cache-Control', 'public, max-age=86400');
@@ -81,3 +76,4 @@ createServer(async (req, res) => {
 }).listen(PORT, () => {
     console.log(`Listening on ${PORT}...`)
 });
+

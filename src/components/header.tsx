@@ -1,8 +1,14 @@
 import * as React from 'react';
-import Menu from './menu';
 
-export default function Header() {
+interface Props {
+    title: string;
+    sub: string;
+}
+
+export default function Header(props: Props) {
+    const { title, sub } = props;
     return (<header role="banner">
-        <h1>Hello React</h1>
+        <h1>{title}</h1>
+        <p>{sub}</p>
     </header>);
 }

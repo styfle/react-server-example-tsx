@@ -3,9 +3,10 @@ import * as React from 'react';
 import Header from './header';
 import Button from './button';
 import Main from './main';
+import Menu from './menu';
 
 interface AppState {
-    items: string[],
+    listItems: string[],
     disabled: boolean;
 }
 
@@ -14,51 +15,58 @@ export default class App extends React.Component<AppProps, AppState> {
         super(props);
         // We initialise its state by using the `props` that were passed in when it
         // was first rendered. We also want the button to be disabled until the
-        // component has fully mounted on the DOM
-        this.state = {items: this.props.items, disabled: true};
+        // App component has fully mounted on the DOM
+        this.state = { listItems: this.props.listItems, disabled: true };
     }
 
-    // Once the component has been mounted, we can enable the button
+    // Once the App component has been mounted, we can enable the button
     componentDidMount() {
-        this.setState({disabled: false});
+        this.setState({ disabled: false });
     }
 
     // Update the state whenever its clicked by adding a new item to
     // the list - imagine this being updated with the results of AJAX calls, etc
     handleAdd = () => {
-        this.setState({
-            items: this.state.items.concat('Item #' + this.state.items.length)
-        });
+        this.setState(prevState => ({
+            listItems: prevState.listItems.concat('Item ' + prevState.listItems.length)
+        }));
     }
     
     handleSort = () => {
-        this.setState({
-            items: this.state.items.sort()
-        });
+        this.setState(prevState => ({
+            listItems: prevState.listItems.sort()
+        }));
     }
     
     render() {
-        const { items } = this.state;
+        const { menuItems } = this.props;
+        const { listItems, disabled } = this.state;
 
-        return (<div className="container">
-            <Header/>
+        return (<div>
+            <Menu items={menuItems} />
             <Main>
+                <Header
+                    title="Hello React"
+                    sub="This is an example using React & TypeScript"
+                />
                 <ul>
-                    {items.map((item, i) =>
+                    {listItems.map((item, i) =>
                         <li key={i}>{item}</li>
                     )}
                 </ul>
                 <Button
                     onClick={this.handleAdd}
-                    disabled={this.state.disabled}
+                    disabled={disabled}
                     type="primary"
-                    value="Add Item" />
-                <br/>
+                    text="Add Item"
+                />
+                <span>&nbsp;</span>
                 <Button
                     onClick={this.handleSort}
-                    disabled={this.state.disabled}
+                    disabled={disabled}
                     type="warning"
-                    value="Sort Items" />
+                    text="Sort Items"
+                />
             </Main>
         </div>);
     }
