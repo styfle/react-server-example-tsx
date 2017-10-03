@@ -1,5 +1,5 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import { hydrate } from 'react-dom';
 import App from './components/app';
 import { propsUrl, containerId } from './constants';
 
@@ -8,6 +8,5 @@ fetch(propsUrl)
     .then((props: AppProps) => {
         const app = (<App {...props} />);
         const el = document.getElementById(containerId);
-        const dom = ReactDOM as any;
-        dom.hydrate(app, el);
+        hydrate(app, el);
     });

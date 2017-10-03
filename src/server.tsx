@@ -1,6 +1,6 @@
 import { createServer, IncomingMessage, ServerResponse } from 'http';
 import { createFactory } from 'react';
-import * as ReactDomServer from 'react-dom/server';
+import { renderToNodeStream } from 'react-dom/server';
 import App from './components/app';
 import { fetchProps } from './props';
 import { faviconUrl, stylesUrl, reactUrl, reactDomUrl, browserUrl, browserMapUrl, propsUrl, containerId } from './constants';
@@ -30,8 +30,7 @@ createServer(async (req, res) => {
             </head>
             <body>
             <div id="${containerId}">`);
-            const domserver = ReactDomServer as any;
-            const stream = domserver.renderToNodeStream(AppFactory(fetchProps()));
+            const stream = renderToNodeStream(AppFactory(fetchProps()));
             stream.pipe(res, { end: false });
             stream.on('end', () => {
             res.end(`</div>
