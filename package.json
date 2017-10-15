@@ -8,7 +8,7 @@
     "start": "node dist/server.js",
     "build": "webpack",
     "watch": "webpack --watch",
-    "test": "tape test/**/*.js"
+    "test": "tsc --outDir . --sourceMap false && tape tests/**/*.js"
   },
   "license": "MIT",
   "dependencies": {

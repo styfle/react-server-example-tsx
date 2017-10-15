@@ -1,5 +1,5 @@
-const test = require('tape');
-const { fetchProps } = require('../src/props');
+import * as test from 'tape';
+import { fetchProps } from '../src/props';
 
 test('fetchProps', t => {
     t.plan(5);
