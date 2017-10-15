@@ -1,6 +1,5 @@
 import { getListItems, getMenuItems } from './db';
 
-export function fetchProps() {
-    const props: AppProps = { listItems: getListItems(), menuItems: getMenuItems() };
-    return props;
+export function fetchProps(): AppProps {
+    return { listItems: getListItems(), menuItems: getMenuItems() };
 }

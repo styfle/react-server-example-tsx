@@ -35,6 +35,11 @@ export function getMenuItems(): MenuItemProps[] {
             id: "ceriously",
             href: "https://www.ceriously.com",
             text: "Ceriously"
-        }
+        },
+        {
+            id: 'github',
+            href: 'https://github.com/styfle/react-server-example-tsx',
+            text: 'Fork Me'
+        },
     ];
 }
