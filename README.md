@@ -18,12 +18,13 @@ Server-Side Rendering (SSR) leads to fast initial page loads, search-engine-frie
 
 ## Getting Started
 
-Install dependencies, build the code, test it, and run it!
+Clone the repo, change directory, install dependencies, build the code, and run it!
 
 ```sh
+git clone https://github.com/styfle/react-server-example-tsx.git
+cd react-server-example-tsx
 npm install
 npm run build
-npm run test
 npm start
 ```
 
