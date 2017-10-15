@@ -8,11 +8,10 @@
     "start": "node dist/server.js",
     "build": "webpack",
     "watch": "webpack --watch",
-    "test": "bundlesize -f dist/browser.js -s 5kB"
+    "test": "tape test/**/*.js"
   },
   "license": "MIT",
   "dependencies": {
-    "bundlesize": "^0.15.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
@@ -20,8 +19,10 @@
     "@types/node": "^8.0.32",
     "@types/react": "^16.0.9",
     "@types/react-dom": "^16.0.0",
+    "@types/tape": "^4.2.30",
     "awesome-typescript-loader": "^3.2.3",
     "source-map-loader": "^0.2.2",
+    "tape": "^4.8.0",
     "typescript": "^2.5.3",
     "webpack": "^3.6.0"
   }
