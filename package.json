@@ -8,7 +8,8 @@
     "start": "node dist/server.js",
     "build": "webpack",
     "watch": "webpack --watch",
-    "test": "tsc --outDir . --sourceMap false && tape tests/**/*.js"
+    "test": "tsc --outDir . --sourceMap false && tape tests/**/*.js",
+    "release": "npm version patch && git push --follow-tags && npm publish"
   },
   "license": "MIT",
   "dependencies": {
