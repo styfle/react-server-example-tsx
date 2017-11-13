@@ -22,7 +22,7 @@
     "@types/react-dom": "^16.0.0",
     "@types/tape": "^4.2.30",
     "awesome-typescript-loader": "^3.3.0",
-    "source-map-loader": "^0.2.2",
+    "source-map-loader": "^0.2.3",
     "tape": "^4.8.0",
     "typescript": "^2.5.3",
     "webpack": "^3.6.0"
