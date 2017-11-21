@@ -17,7 +17,7 @@
     "react-dom": "^16.1.0"
   },
   "devDependencies": {
-    "@types/node": "^8.0.51",
+    "@types/node": "^8.0.53",
     "@types/react": "^16.0.22",
     "@types/react-dom": "^16.0.3",
     "@types/tape": "^4.2.31",
