@@ -1,4 +1,5 @@
-const { CheckerPlugin } = require('awesome-typescript-loader')
+const { CheckerPlugin } = require('awesome-typescript-loader');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = [{
     entry: {
@@ -61,5 +62,6 @@ module.exports = [{
     plugins: [
         new CheckerPlugin()
     ],
-    target: "node"
+    target: "node",
+    externals: [nodeExternals()]
 }];
