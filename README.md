@@ -6,10 +6,6 @@
 [![devDependency Status](https://david-dm.org/styfle/react-server-example-tsx/dev-status.svg)](https://david-dm.org/styfle/react-server-example-tsx#info=devDependencies)
 [![Build Status](https://travis-ci.org/styfle/react-server-example-tsx.svg?branch=master)](https://travis-ci.org/styfle/react-server-example-tsx)
 
-<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/fnqaM5soqgNJruSNFm8pdqUw/styfle/react-server-example-tsx'>
-  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/fnqaM5soqgNJruSNFm8pdqUw/styfle/react-server-example-tsx.svg' />
-</a>
-
 A complex example of how to do server-side rendering with
 [React](http://facebook.github.io/react/) and [TypeScript](https://www.typescriptlang.org/) so that component code can be shared between server and browser (also known as isomorphic javascript).
 
