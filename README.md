@@ -44,9 +44,12 @@ See [browser.tsx](https://github.com/styfle/react-server-example-tsx/blob/master
 
 See [server.tsx](https://github.com/styfle/react-server-example-tsx/blob/master/src/server.tsx) for the server-side code.
 
-
 ## Prior art
 
 Based on prior work found at [mhart/react-server-example](https://github.com/mhart/react-server-example). It's very good so you should check it out :)
 
 Additionally, I use a combination between [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html#create-a-webpack-configuration-file) and [awesome-typescript-loader](https://github.com/s-panferov/awesome-typescript-loader#configuration) when I switched from browserify v1.4.x to webpack v2.0.x (now webpack v3.x).
+
+## Authors
+
+Developed by [ceriously.com](https://www.ceriously.com)
