@@ -29,11 +29,8 @@ Then navigate to http://localhost:3007 and click on the buttons to see some reac
 
 ## Deployment
 
-You can deploy with `now` by doing something like the following:
-
-```sh
-npx now -e NODE_ENV=production styfle/react-server-example-tsx
-```
+- Heroku: <a href="https://www.heroku.com/deploy/?template=https://github.com/styfle/react-server-example-tsx"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy" height="20px"></a>
+- ZEIT Now: `npx now -e NODE_ENV=production styfle/react-server-example-tsx`
 
 ## Preventing XSS
 
