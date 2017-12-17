@@ -21,6 +21,7 @@ git clone https://github.com/styfle/react-server-example-tsx.git
 cd react-server-example-tsx
 npm install
 npm run build
+npm run test
 npm start
 ```
 
