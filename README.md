@@ -29,8 +29,16 @@ Then navigate to http://localhost:3007 and click on the buttons to see some reac
 
 ## Deployment
 
-- Heroku: <a href="https://www.heroku.com/deploy/?template=https://github.com/styfle/react-server-example-tsx"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy" height="20px"></a>
-- ZEIT Now: `npx now -e NODE_ENV=production styfle/react-server-example-tsx`
+
+<a href="https://www.heroku.com/deploy/?template=https://github.com/styfle/react-server-example-tsx"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy to Heroku" height="25px"></a>
+
+<a href="https://deploy.now.sh/?repo=https://github.com/styfle/react-server-example-tsx"><img src="https://deploy.now.sh/static/button.svg" alt="Deploy to Now" height="25px"></a>
+
+Don't forget to set the environment variable `NODE_ENV=production` to avoid the slower, dev version of React. Like so:
+
+```sh
+npx now -e NODE_ENV=production styfle/react-server-example-tsx
+```
 
 ## Preventing XSS
 
