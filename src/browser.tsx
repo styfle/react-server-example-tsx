@@ -6,7 +6,7 @@ import { propsUrl, containerId } from './constants';
 fetch(propsUrl)
     .then(o => o.json())
     .then((props: AppProps) => {
-        const app = (<App {...props} />);
+        const app = <App {...props} />;
         const el = document.getElementById(containerId);
         hydrate(app, el);
     });
