@@ -1,13 +1,16 @@
 {
     "compilerOptions": {
+        "rootDir": ".",
         "outDir": "./dist/",
         "module": "commonjs",
         "target": "ES2017",
         "moduleResolution": "node",
-        "strict": true,
-        "rootDir": ".",
         "jsx": "react",
-        "sourceMap": true
+        "sourceMap": true,
+        "strict": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noEmitOnError": true
     },
     "exclude": [
         "node_modules"
