@@ -8,6 +8,9 @@
     "start": "node dist/server.js",
     "build": "webpack",
     "watch": "webpack --watch",
+    "prettier": "prettier \"./src/**/*.ts\"",
+    "prettier:check": "npm run prettier -- --list-different",
+    "prettier:write": "npm run prettier -- --write",
     "test": "tsc --outDir . --sourceMap false && tape tests/**/*.js",
     "release": "npm version patch && git push --follow-tags && npm publish"
   },
@@ -22,6 +25,7 @@
     "@types/react-dom": "^16.0.3",
     "@types/tape": "^4.2.31",
     "awesome-typescript-loader": "^3.4.1",
+    "prettier": "1.10.2",
     "source-map-loader": "^0.2.3",
     "tape": "^4.8.0",
     "typescript": "^2.6.2",
