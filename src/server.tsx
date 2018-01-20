@@ -1,8 +1,11 @@
 import { createServer, IncomingMessage, ServerResponse } from 'http';
 import { createFactory } from 'react';
 import { renderToNodeStream } from 'react-dom/server';
+import { createReadStream } from 'fs';
 import App from './components/app';
 import { fetchProps } from './props';
+import { lookup } from './mime-types';
+import { control } from './cache-control';
 import {
     faviconUrl,
     stylesUrl,
@@ -13,7 +16,6 @@ import {
     propsUrl,
     containerId,
 } from './constants';
-import { readFileAsync } from './file';
 
 console.log('Server booting...');
 const isProd = process.env.NODE_ENV === 'production';
@@ -23,11 +25,15 @@ const PORT = process.env.PORT || 3007;
 const suffix = isProd ? '.production.min.js' : '.development.js';
 
 createServer(async (req, res) => {
-    const { httpVersion, method, url } = req;
+    let { httpVersion, method, url } = req;
     console.log(`${httpVersion} ${method} ${url}`);
+    if (!url || url === '/') {
+        url = 'index.html';
+    }
     try {
-        if (url === '/') {
-            res.setHeader('Content-Type', 'text/html');
+        if (url === 'index.html') {
+            res.setHeader('Content-Type', lookup(url));
+            res.setHeader('Cache-Control', control(isProd, 1));
             res.write(`<!DOCTYPE html>
             <html>
             <head>
@@ -50,34 +56,37 @@ createServer(async (req, res) => {
             </html>`);
             });
         } else if (url === propsUrl) {
-            res.setHeader('Content-Type', 'application/json');
+            res.setHeader('Content-Type', lookup(url));
+            res.setHeader('Cache-Control', control(isProd, 0));
             res.end(JSON.stringify(fetchProps()));
-        } else if (url === reactUrl) {
-            res.setHeader('Content-Type', 'text/javascript');
-            res.setHeader('Cache-Control', 'public, max-age=86400');
-            const data = await readFileAsync(`./node_modules/react/umd/react${suffix}`);
-            res.end(data);
-        } else if (url === reactDomUrl) {
-            res.setHeader('Content-Type', 'text/javascript');
-            res.setHeader('Cache-Control', 'public, max-age=86400');
-            const data = await readFileAsync(`./node_modules/react-dom/umd/react-dom${suffix}`);
-            res.end(data);
+        } else if (url === reactUrl || url === reactDomUrl) {
+            res.setHeader('Content-Type', lookup(url));
+            res.setHeader('Cache-Control', control(isProd, 7));
+            const name = url.replace('.js', '');
+            const file = `./node_modules${name}/umd${name}${suffix}`;
+            createReadStream(file).pipe(res);
         } else if (url === stylesUrl) {
-            res.setHeader('Content-Type', 'text/css');
-            const data = await readFileAsync(`./src/${url}`);
-            res.end(data);
+            res.setHeader('Content-Type', lookup(url));
+            res.setHeader('Cache-Control', control(isProd, 7));
+            const file = `./src/${url}`;
+            createReadStream(file).pipe(res);
         } else if (url === browserUrl || url === browserMapUrl) {
-            res.setHeader('Content-Type', 'text/javascript');
-            const data = await readFileAsync(`./dist${url}`);
-            res.end(data);
+            res.setHeader('Content-Type', lookup(url));
+            res.setHeader('Cache-Control', control(isProd, 7));
+            const file = `./dist${url}`;
+            createReadStream(file).pipe(res);
         } else {
-            res.setHeader('Content-Type', 'text/plain');
+            url = 'notfound.txt';
+            res.setHeader('Content-Type', lookup(url));
+            res.setHeader('Cache-Control', control(isProd, 0));
             res.statusCode = 404;
             res.end('404 Not Found');
         }
     } catch (e) {
         console.error(e);
-        res.setHeader('Content-Type', 'text/plain');
+        url = 'notfound.txt';
+        res.setHeader('Content-Type', lookup(url));
+        res.setHeader('Cache-Control', control(isProd, 0));
         res.statusCode = 500;
         res.end('500 Internal Error');
     }
