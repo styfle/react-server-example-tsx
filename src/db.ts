@@ -8,7 +8,7 @@ export function getListItems(): string[] {
         'Item 1',
         'Item <script>alert(hack);</script>',
         'Item <!--injected!-->',
-        'Just click to add more <b>bold</b>'
+        'Just click to add more <b>bold</b>',
     ];
 }
 
@@ -19,27 +19,27 @@ export function getMenuItems(): MenuItemProps[] {
         {
             id: 'home',
             href: '#',
-            text: 'Home'
+            text: 'Home',
         },
         {
-            id: "react-docs",
-            href: "https://reactjs.org/",
-            text: "React Docs"
+            id: 'react-docs',
+            href: 'https://reactjs.org/',
+            text: 'React Docs',
         },
         {
             id: 'typescript-docs',
             href: 'https://www.typescriptlang.org/',
-            text: 'TypeScript Docs'
+            text: 'TypeScript Docs',
         },
         {
-            id: "ceriously",
-            href: "https://www.ceriously.com",
-            text: "Ceriously"
+            id: 'ceriously',
+            href: 'https://www.ceriously.com',
+            text: 'Ceriously',
         },
         {
             id: 'github',
             href: 'https://github.com/styfle/react-server-example-tsx',
-            text: 'Fork Me'
+            text: 'Fork Me',
         },
     ];
 }

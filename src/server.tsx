@@ -3,7 +3,16 @@ import { createFactory } from 'react';
 import { renderToNodeStream } from 'react-dom/server';
 import App from './components/app';
 import { fetchProps } from './props';
-import { faviconUrl, stylesUrl, reactUrl, reactDomUrl, browserUrl, browserMapUrl, propsUrl, containerId } from './constants';
+import {
+    faviconUrl,
+    stylesUrl,
+    reactUrl,
+    reactDomUrl,
+    browserUrl,
+    browserMapUrl,
+    propsUrl,
+    containerId,
+} from './constants';
 import { readFileAsync } from './file';
 
 console.log('Server booting...');
@@ -33,7 +42,7 @@ createServer(async (req, res) => {
             const stream = renderToNodeStream(AppFactory(fetchProps()));
             stream.pipe(res, { end: false });
             stream.on('end', () => {
-            res.end(`</div>
+                res.end(`</div>
                 <script src="${reactUrl}"></script>
                 <script src="${reactDomUrl}"></script>
                 <script src="${browserUrl}"></script>
@@ -73,6 +82,5 @@ createServer(async (req, res) => {
         res.end('500 Internal Error');
     }
 }).listen(PORT, () => {
-    console.log(`Listening on ${PORT}...`)
+    console.log(`Listening on ${PORT}...`);
 });
-

@@ -11,13 +11,9 @@ export default function Menu(props: Props) {
         <nav className="navbar navbar-default">
             <div className="container">
                 <ul className="nav navbar-nav">
-                {items.map( (o,i) => 
-                    <MenuItem
-                        key={o.id}
-                        id={o.id}
-                        text={o.text}
-                        href={o.href} />
-                )}
+                    {items.map((o, i) => (
+                        <MenuItem key={o.id} id={o.id} text={o.text} href={o.href} />
+                    ))}
                 </ul>
             </div>
         </nav>

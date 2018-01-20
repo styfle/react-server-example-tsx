@@ -6,7 +6,7 @@ import Main from './main';
 import Menu from './menu';
 
 interface AppState {
-    listItems: string[],
+    listItems: string[];
     disabled: boolean;
 }
 
@@ -28,46 +28,41 @@ export default class App extends React.Component<AppProps, AppState> {
     // the list - imagine this being updated with the results of AJAX calls, etc
     handleAdd = () => {
         this.setState(prevState => ({
-            listItems: prevState.listItems.concat('Item ' + prevState.listItems.length)
+            listItems: prevState.listItems.concat('Item ' + prevState.listItems.length),
         }));
-    }
-    
+    };
+
     handleSort = () => {
         this.setState(prevState => ({
-            listItems: prevState.listItems.sort()
+            listItems: prevState.listItems.sort(),
         }));
-    }
-    
+    };
+
     render() {
         const { menuItems } = this.props;
         const { listItems, disabled } = this.state;
 
-        return (<div>
-            <Menu items={menuItems} />
-            <Main>
-                <Header
-                    title="Hello React"
-                    sub="This is an example using React & TypeScript"
-                />
-                <ul>
-                    {listItems.map((item, i) =>
-                        <li key={i}>{item}</li>
-                    )}
-                </ul>
-                <Button
-                    onClick={this.handleAdd}
-                    disabled={disabled}
-                    type="primary"
-                    text="Add Item"
-                />
-                <span>&nbsp;</span>
-                <Button
-                    onClick={this.handleSort}
-                    disabled={disabled}
-                    type="warning"
-                    text="Sort Items"
-                />
-            </Main>
-        </div>);
+        return (
+            <div>
+                <Menu items={menuItems} />
+                <Main>
+                    <Header title="Hello React" sub="This is an example using React & TypeScript" />
+                    <ul>{listItems.map((item, i) => <li key={i}>{item}</li>)}</ul>
+                    <Button
+                        onClick={this.handleAdd}
+                        disabled={disabled}
+                        type="primary"
+                        text="Add Item"
+                    />
+                    <span>&nbsp;</span>
+                    <Button
+                        onClick={this.handleSort}
+                        disabled={disabled}
+                        type="warning"
+                        text="Sort Items"
+                    />
+                </Main>
+            </div>
+        );
     }
 }
