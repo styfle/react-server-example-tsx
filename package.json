@@ -1,6 +1,6 @@
 {
   "name": "react-server-example-tsx",
-  "version": "4.0.9",
+  "version": "4.1.0",
   "description": "Boilerplate for isomorphic web app with React server-side rendering in TypeScript.",
   "main": "dist/server.js",
   "repository": "styfle/react-server-example-tsx",
@@ -8,7 +8,7 @@
     "start": "node dist/server.js",
     "build": "webpack",
     "watch": "webpack --watch",
-    "prettier": "prettier \"./src/**/*.ts\" \"./src/**/*.tsx\"" ,
+    "prettier": "prettier \"./src/**/*.ts\" \"./src/**/*.tsx\"",
     "prettier:check": "npm run prettier -- --list-different",
     "prettier:write": "npm run prettier -- --write",
     "test": "tsc --outDir . --sourceMap false && tape tests/**/*.js",
