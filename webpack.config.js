@@ -1,4 +1,3 @@
-const { CheckerPlugin } = require('awesome-typescript-loader');
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = [
@@ -20,14 +19,13 @@ module.exports = [
 
         // Add the loader for .ts files.
         module: {
-            loaders: [
+            rules: [
                 {
                     test: /\.tsx?$/,
-                    loader: 'awesome-typescript-loader',
+                    loader: 'ts-loader',
                 },
             ],
         },
-        plugins: [new CheckerPlugin()],
         externals: {
             react: 'React',
             'react-dom': 'ReactDOM',
@@ -51,14 +49,13 @@ module.exports = [
 
         // Add the loader for .ts files.
         module: {
-            loaders: [
+            rules: [
                 {
                     test: /\.tsx?$/,
-                    loader: 'awesome-typescript-loader',
+                    loader: 'ts-loader',
                 },
             ],
         },
-        plugins: [new CheckerPlugin()],
         target: 'node',
         externals: [nodeExternals()],
     },
