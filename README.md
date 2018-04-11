@@ -56,6 +56,6 @@ Based on prior work found at [mhart/react-server-example](https://github.com/mha
 
 Additionally, I use a combination between [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html#create-a-webpack-configuration-file) and [awesome-typescript-loader](https://github.com/s-panferov/awesome-typescript-loader#configuration) when I switched from browserify v1.4.x to webpack v2.0.x (now webpack v3.x).
 
-## Authors
+## Author
 
-Developed by [ceriously.com](https://www.ceriously.com)
+Developed by [ceriously.com](https://www.ceriously.com), the author of [Package Phobia](https://github.com/styfle/packagephobia)
