@@ -8,9 +8,7 @@
     "start": "node dist/server.js",
     "build": "webpack --mode production",
     "watch": "webpack --mode development --watch",
-    "prettier": "prettier \"./src/**/*.ts\" \"./src/**/*.tsx\"",
-    "prettier:check": "npm run prettier -- --list-different",
-    "prettier:write": "npm run prettier -- --write",
+    "prettier": "prettier \"./src/**/*.ts\" \"./src/**/*.tsx\" --write",
     "test": "tsc --outDir . --sourceMap false && tape tests/**/*.js",
     "release": "npm version patch && git push --follow-tags && npm publish"
   },
@@ -30,7 +28,7 @@
     "ts-loader": "^4.0.0",
     "typescript": "^2.7.2",
     "webpack": "^4.0.0",
-    "webpack-cli": "^2.0.9",
+    "webpack-command": "^0.1.1",
     "webpack-node-externals": "^1.6.0"
   }
 }
