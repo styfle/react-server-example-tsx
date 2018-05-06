@@ -10,7 +10,8 @@
     "watch": "webpack --mode development --watch",
     "prettier": "prettier \"./src/**/*.ts\" \"./src/**/*.tsx\" --write",
     "test": "tsc --outDir . --sourceMap false && tape tests/**/*.js",
-    "release": "npm version patch && git push --follow-tags && npm publish"
+    "release": "npm version patch && git push --follow-tags && npm publish",
+    "deploy": "now --public && now alias"
   },
   "license": "MIT",
   "dependencies": {
