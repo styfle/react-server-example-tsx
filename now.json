@@ -1,0 +1,7 @@
+{
+    "name": "react-server-example-tsx",
+    "alias": "react-tsx.now.sh",
+    "env": {
+        "NODE_ENV": "production"
+      }
+  }
