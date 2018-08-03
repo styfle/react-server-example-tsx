@@ -1,6 +1,7 @@
 {
     "name": "react-server-example-tsx",
     "alias": "react-tsx.now.sh",
+    "type": "docker",
     "env": {
         "NODE_ENV": "production"
       }
