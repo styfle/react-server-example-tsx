@@ -15,21 +15,21 @@
   },
   "license": "MIT",
   "dependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
   },
   "devDependencies": {
-    "@types/node": "^10.0.1",
-    "@types/react": "^16.0.38",
-    "@types/react-dom": "^16.0.4",
-    "@types/tape": "^4.2.31",
-    "prettier": "1.13.7",
+    "@types/node": "^10.5.5",
+    "@types/react": "^16.4.7",
+    "@types/react-dom": "^16.0.6",
+    "@types/tape": "^4.2.32",
+    "prettier": "1.14.0",
     "source-map-loader": "^0.2.3",
-    "tape": "^4.9.0",
-    "ts-loader": "^4.3.1",
-    "typescript": "^2.7.2",
-    "webpack": "^4.0.0",
-    "webpack-command": "^0.3.1",
-    "webpack-node-externals": "^1.6.0"
+    "tape": "^4.9.1",
+    "ts-loader": "^4.4.2",
+    "typescript": "^3.0.1",
+    "webpack": "^4.16.4",
+    "webpack-command": "^0.4.1",
+    "webpack-node-externals": "^1.7.2"
   }
 }

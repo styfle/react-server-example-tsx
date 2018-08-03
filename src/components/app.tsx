@@ -47,7 +47,11 @@ export default class App extends React.Component<AppProps, AppState> {
                 <Menu items={menuItems} />
                 <Main>
                     <Header title="Hello React" sub="This is an example using React & TypeScript" />
-                    <ul>{listItems.map((item, i) => <li key={i}>{item}</li>)}</ul>
+                    <ul>
+                        {listItems.map((item, i) => (
+                            <li key={i}>{item}</li>
+                        ))}
+                    </ul>
                     <Button
                         onClick={this.handleAdd}
                         disabled={disabled}
