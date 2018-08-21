@@ -1,6 +1,10 @@
+//@ts-check
+/** @typedef {import('webpack').Configuration} WebpackConfig **/
 const nodeExternals = require('webpack-node-externals');
 
-module.exports = [
+
+/** @type WebpackConfig[] */
+const configs = [
     {
         entry: {
             browser: './src/browser.tsx',
@@ -60,3 +64,5 @@ module.exports = [
         externals: [nodeExternals()],
     },
 ];
+
+module.exports = configs;
