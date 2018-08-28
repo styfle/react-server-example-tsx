@@ -1,10 +1,10 @@
 # react-server-example-tsx
 
-[![npm](https://img.shields.io/npm/v/react-server-example-tsx.svg?maxAge=86400)](https://www.npmjs.com/package/react-server-example-tsx)
-[![Downloads](https://img.shields.io/npm/dt/react-server-example-tsx.svg)](https://www.npmjs.com/package/react-server-example-tsx)
-[![Dependency Status](https://david-dm.org/styfle/react-server-example-tsx.svg)](https://david-dm.org/styfle/react-server-example-tsx)
-[![devDependency Status](https://david-dm.org/styfle/react-server-example-tsx/dev-status.svg)](https://david-dm.org/styfle/react-server-example-tsx#info=devDependencies)
-[![Build Status](https://travis-ci.org/styfle/react-server-example-tsx.svg?branch=master)](https://travis-ci.org/styfle/react-server-example-tsx)
+[![npm](https://badgen.net/npm/v/react-server-example-tsx)](https://www.npmjs.com/package/react-server-example-tsx)
+[![Downloads](https://badgen.net/npm/dt/react-server-example-tsx)](https://www.npmjs.com/package/react-server-example-tsx)
+[![Dependency Status](https://badgen.net/david/dep/styfle/react-server-example-tsx)](https://david-dm.org/styfle/react-server-example-tsx)
+[![devDependency Status](https://badgen.net/david/dev/styfle/react-server-example-tsx)](https://david-dm.org/styfle/react-server-example-tsx?type=dev)
+[![Build Status](https://badgen.net/travis/styfle/react-server-example-tsx)](https://travis-ci.org/styfle/react-server-example-tsx)
 
 A complex example of how to do server-side rendering with
 [React](http://facebook.github.io/react/) and [TypeScript](https://www.typescriptlang.org/) so that component code can be shared between server and browser (also known as isomorphic javascript).
