@@ -24,7 +24,7 @@
     "@types/react-dom": "^16.0.6",
     "@types/tape": "^4.2.32",
     "@types/webpack": "^4.4.10",
-    "prettier": "1.14.0",
+    "prettier": "1.14.2",
     "source-map-loader": "^0.2.3",
     "tape": "^4.9.1",
     "ts-loader": "^4.4.2",
