@@ -4,6 +4,7 @@
 [![Downloads](https://badgen.net/npm/dt/react-server-example-tsx)](https://www.npmjs.com/package/react-server-example-tsx)
 [![Dependency Status](https://badgen.net/david/dep/styfle/react-server-example-tsx)](https://david-dm.org/styfle/react-server-example-tsx)
 [![devDependency Status](https://badgen.net/david/dev/styfle/react-server-example-tsx)](https://david-dm.org/styfle/react-server-example-tsx?type=dev)
+[![LGTM Quality](https://badgen.net/lgtm/grade/javascript/g/styfle/react-server-example-tsx)](https://lgtm.com/projects/g/styfle/react-server-example-tsx/)
 [![Build Status](https://badgen.net/travis/styfle/react-server-example-tsx)](https://travis-ci.org/styfle/react-server-example-tsx)
 
 A complex example of how to do server-side rendering with
