@@ -2,7 +2,10 @@
     "name": "react-server-example-tsx",
     "alias": "react-tsx.now.sh",
     "type": "docker",
+    "features": {
+        "cloud": "v2"
+    },
     "env": {
         "NODE_ENV": "production"
-      }
-  }
+    }
+}
