@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:8.11.3 as build
+FROM mhart/alpine-node:8.11.4 as build
 WORKDIR /usr/app
 COPY . .
 RUN npm install --only=production
@@ -7,7 +7,7 @@ RUN npm install
 ENV NODE_ENV production
 RUN npm run build
 
-FROM mhart/alpine-node:base-8.11.3
+FROM mhart/alpine-node:base-8.11.4
 WORKDIR /usr/app
 ENV NODE_ENV production
 COPY --from=build /usr/app/prod_modules ./node_modules
