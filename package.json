@@ -11,7 +11,7 @@
     "prettier": "prettier \"./src/**/*.ts\" \"./src/**/*.tsx\" --write",
     "test": "tsc --outDir . --sourceMap false && tape tests/**/*.js",
     "release": "npm version patch && git push --follow-tags && npm publish",
-    "deploy": "now --docker --public && now alias"
+    "deploy": "now --public && now alias"
   },
   "license": "MIT",
   "dependencies": {
