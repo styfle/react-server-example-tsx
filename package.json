@@ -6,7 +6,8 @@
   "repository": "styfle/react-server-example-tsx",
   "scripts": {
     "start": "node dist/server.js",
-    "build": "webpack --mode production",
+    "build": "webpack --mode development",
+    "now-build": "webpack --mode production",
     "watch": "webpack --mode development --watch",
     "prettier": "prettier \"./src/**/*.ts\" \"./src/**/*.tsx\" --write",
     "test": "tsc --outDir . --sourceMap false && tape tests/**/*.js",

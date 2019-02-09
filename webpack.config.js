@@ -37,7 +37,7 @@ const configs = [
     },
     {
         entry: {
-            server: './src/server.tsx',
+            server: './src/server.ts',
         },
         output: {
             path: __dirname + '/dist',

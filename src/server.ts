@@ -1,4 +1,4 @@
-import { createServer } from 'http';
+import { createServer, IncomingMessage, ServerResponse } from 'http';
 import { createFactory } from 'react';
 import { renderToNodeStream } from 'react-dom/server';
 import { createReadStream } from 'fs';
@@ -9,8 +9,6 @@ import { control } from './cache-control';
 import {
     faviconUrl,
     stylesUrl,
-    reactUrl,
-    reactDomUrl,
     browserUrl,
     browserMapUrl,
     propsUrl,
@@ -23,8 +21,9 @@ console.log('Production optimization enabled? ', isProd);
 const AppFactory = createFactory(App);
 const PORT = process.env.PORT || 3007;
 const suffix = isProd ? '.production.min.js' : '.development.js';
+const reactVersion = require('../package.json').dependencies.react;
 
-createServer(async (req, res) => {
+export default async function handler(req: IncomingMessage, res: ServerResponse) {
     let { httpVersion, method, url } = req;
     console.log(`${httpVersion} ${method} ${url}`);
     if (!url || url === '/') {
@@ -52,8 +51,8 @@ createServer(async (req, res) => {
             );
             stream.on('end', () => {
                 res.end(`</div>
-                <script src="${reactUrl}"></script>
-                <script src="${reactDomUrl}"></script>
+                <script src="https://unpkg.com/react@${reactVersion}/umd/react${suffix}"></script>
+                <script src="https://unpkg.com/react-dom@${reactVersion}/umd/react-dom${suffix}"></script>
                 <script src="${browserUrl}"></script>
             </body>
             </html>`);
@@ -62,12 +61,6 @@ createServer(async (req, res) => {
             res.setHeader('Content-Type', lookup(url));
             res.setHeader('Cache-Control', control(isProd, 0));
             res.end(JSON.stringify(fetchProps()));
-        } else if (url === reactUrl || url === reactDomUrl) {
-            res.setHeader('Content-Type', lookup(url));
-            res.setHeader('Cache-Control', control(isProd, 7));
-            const name = url.replace('.js', '');
-            const file = `./node_modules${name}/umd${name}${suffix}`;
-            createReadStream(file).pipe(res);
         } else if (url === stylesUrl) {
             res.setHeader('Content-Type', lookup(url));
             res.setHeader('Cache-Control', control(isProd, 7));
@@ -93,6 +86,10 @@ createServer(async (req, res) => {
         res.statusCode = 500;
         res.end('500 Internal Error');
     }
-}).listen(PORT, () => {
-    console.log(`Listening on ${PORT}...`);
-});
+}
+
+if (!isProd) {
+    createServer(handler).listen(PORT, () => {
+        console.log(`Listening on ${PORT}...`);
+    });
+}

@@ -49,7 +49,7 @@ I avoided this by performing *1 extra http request* to fetch the props as json b
 
 See [browser.tsx](https://github.com/styfle/react-server-example-tsx/blob/master/src/browser.tsx) for the client-side code.
 
-See [server.tsx](https://github.com/styfle/react-server-example-tsx/blob/master/src/server.tsx) for the server-side code.
+See [server.ts](https://github.com/styfle/react-server-example-tsx/blob/master/src/server.ts) for the server-side code.
 
 ## Prior art
 
