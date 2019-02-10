@@ -1,6 +1,6 @@
 import { createServer, IncomingMessage, ServerResponse } from 'http';
-import { createFactory } from 'react';
-import { renderToNodeStream } from 'react-dom/server';
+import { createFactory, version as reactVersion } from 'react';
+import { renderToNodeStream, version as reactDomVersion } from 'react-dom/server';
 import { createReadStream } from 'fs';
 import App from './components/app';
 import { fetchProps } from './props';
@@ -21,7 +21,6 @@ console.log('Production optimization enabled? ', isProd);
 const AppFactory = createFactory(App);
 const PORT = process.env.PORT || 3007;
 const suffix = isProd ? '.production.min.js' : '.development.js';
-const reactVersion = require('../package.json').dependencies.react;
 
 export default async function handler(req: IncomingMessage, res: ServerResponse) {
     let { httpVersion, method, url } = req;
@@ -52,7 +51,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
             stream.on('end', () => {
                 res.end(`</div>
                 <script src="https://unpkg.com/react@${reactVersion}/umd/react${suffix}"></script>
-                <script src="https://unpkg.com/react-dom@${reactVersion}/umd/react-dom${suffix}"></script>
+                <script src="https://unpkg.com/react-dom@${reactDomVersion}/umd/react-dom${suffix}"></script>
                 <script src="${browserUrl}"></script>
             </body>
             </html>`);
