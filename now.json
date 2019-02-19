@@ -1,6 +1,7 @@
 {
     "name": "react-server-example-tsx",
     "alias": "react-tsx.now.sh",
+    "public": true,
     "version": 2,
     "regions": ["all"],
     "builds": [
