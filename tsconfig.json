@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
-        "rootDir": ".",
-        "outDir": "./dist/",
+        "outDir": "dist",
         "module": "commonjs",
         "target": "ES2017",
         "moduleResolution": "node",
