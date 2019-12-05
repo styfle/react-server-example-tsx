@@ -32,12 +32,15 @@ Then navigate to http://localhost:3007 and click on the buttons to see some reac
 
 You can deploy with one click.
 
-[![Deploy Now](https://deploy.now.sh/static/button.svg)](https://zeit.co/new/project?template=/styfle/react-server-example-tsx)
+[![Deploy Now](https://zeit.co/button)](https://zeit.co/new/project?template=styfle/react-server-example-tsx)
 
 Alternatively, you can deploy from the command line.
 
 ```sh
-npx now styfle/react-server-example-tsx
+git clone https://github.com/styfle/react-server-example-tsx
+cd react-server-example-tsx
+npm i -g now
+now
 ```
 
 If you choose to deploy somewhere besides ZEIT Now, remember to set the environment variable `NODE_ENV=production` to avoid the slower, development version of React.
