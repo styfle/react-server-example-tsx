@@ -30,7 +30,7 @@
     "tape": "^4.13.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.8.3",
-    "webpack": "^4.41.5",
+    "webpack": "^4.41.6",
     "webpack-cli": "^3.3.10",
     "webpack-node-externals": "^1.7.2"
   }
