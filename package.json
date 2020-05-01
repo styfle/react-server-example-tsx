@@ -23,7 +23,7 @@
     "@types/node": "^12.12.37",
     "@types/react": "^16.9.31",
     "@types/react-dom": "^16.9.6",
-    "@types/tape": "^4.2.34",
+    "@types/tape": "^4.13.0",
     "@types/webpack": "^4.41.10",
     "prettier": "2.0.2",
     "source-map-loader": "^0.2.4",
