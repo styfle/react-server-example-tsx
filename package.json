@@ -28,7 +28,7 @@
     "prettier": "2.0.5",
     "source-map-loader": "^0.2.4",
     "tape": "^5.0.0",
-    "ts-loader": "^6.2.2",
+    "ts-loader": "^7.0.2",
     "typescript": "^3.8.3",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
