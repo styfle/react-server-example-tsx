@@ -63,4 +63,4 @@ Additionally, I use a combination between [TypeScript Handbook](https://www.type
 
 ## Author
 
-Developed by [ceriously.com](https://www.ceriously.com), the author of [Package Phobia](https://github.com/styfle/packagephobia)
+Developed by [styfle](https://styfle.dev), the author of [Package Phobia](https://github.com/styfle/packagephobia)
