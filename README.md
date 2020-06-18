@@ -51,9 +51,9 @@ The original code from `mhart` attempts to [sanitize the props](https://github.c
 
 I avoided this by performing *1 extra http request* to fetch the props as json before initializing React in the browser. This means that click handlers will not be initialized until the data is returned and React can pick up where it left off after the server-side render and attach the click even handlers. This is the purpose of `ReactDOM.hydrate`.
 
-See [browser.tsx](https://github.com/styfle/react-server-example-tsx/blob/master/src/browser.tsx) for the client-side code.
+See [browser.tsx](https://github.com/styfle/react-server-example-tsx/blob/main/src/browser.tsx) for the client-side code.
 
-See [server.ts](https://github.com/styfle/react-server-example-tsx/blob/master/src/server.ts) for the server-side code.
+See [server.ts](https://github.com/styfle/react-server-example-tsx/blob/main/src/server.ts) for the server-side code.
 
 ## Prior art
 
