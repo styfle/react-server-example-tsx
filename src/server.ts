@@ -87,7 +87,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     }
 }
 
-if (!isProd) {
+if (require.main === module) {
     createServer(handler).listen(PORT, () => {
         console.log(`Listening on ${PORT}...`);
     });

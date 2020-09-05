@@ -28,23 +28,6 @@ npm start
 
 Then navigate to http://localhost:3007 and click on the buttons to see some reactive events in action.
 
-## Deployment
-
-You can deploy with one click.
-
-[![Deploy Now](https://zeit.co/button)](https://zeit.co/new/project?template=styfle/react-server-example-tsx)
-
-Alternatively, you can deploy from the command line.
-
-```sh
-git clone https://github.com/styfle/react-server-example-tsx
-cd react-server-example-tsx
-npm i -g now
-now
-```
-
-If you choose to deploy somewhere besides ZEIT Now, remember to set the environment variable `NODE_ENV=production` to avoid the slower, development version of React.
-
 ## Preventing XSS
 
 The original code from `mhart` attempts to [sanitize the props](https://github.com/mhart/react-server-example/blob/feada6183fe2fbb1a746492e157febe49eeafdcd/server.js#L106) by escaping and then inserting into a `<script>` tag.
@@ -59,7 +42,7 @@ See [server.ts](https://github.com/styfle/react-server-example-tsx/blob/main/src
 
 Based on prior work found at [mhart/react-server-example](https://github.com/mhart/react-server-example). It's very good so you should check it out :)
 
-Additionally, I use a combination between [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html#create-a-webpack-configuration-file) and [awesome-typescript-loader](https://github.com/s-panferov/awesome-typescript-loader#configuration) when I switched from browserify v1.4.x to webpack v2.0.x (now webpack v3.x).
+Additionally, I use a combination between [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/react-&-webpack.html#create-a-webpack-configuration-file) and [awesome-typescript-loader](https://github.com/s-panferov/awesome-typescript-loader#configuration) when I switched from browserify v1.4.x to webpack v2.0.x (now webpack v4.x).
 
 ## Author
 
