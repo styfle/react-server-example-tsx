@@ -44,10 +44,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
             <body>
             <div id="${containerId}">`);
             const stream = renderToNodeStream(AppFactory(fetchProps()));
-            stream.pipe(
-                res,
-                { end: false },
-            );
+            stream.pipe(res, { end: false });
             stream.on('end', () => {
                 res.end(`</div>
                 <script src="https://unpkg.com/react@${reactVersion}/umd/react${suffix}"></script>
