@@ -21,7 +21,7 @@ Clone the repo, change directory, install dependencies, build the code, and run 
 git clone https://github.com/styfle/react-server-example-tsx.git
 cd react-server-example-tsx
 npm install
-npm run build
+npm run vercel-build
 npm run test
 npm start
 ```
