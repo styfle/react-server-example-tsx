@@ -28,7 +28,7 @@
     "tape": "^5.2.1",
     "ts-loader": "^8.0.17",
     "typescript": "^4.2.2",
-    "webpack": "^5.19.0",
+    "webpack": "^5.24.2",
     "webpack-cli": "^4.5.0",
     "webpack-node-externals": "^2.5.2"
   }
