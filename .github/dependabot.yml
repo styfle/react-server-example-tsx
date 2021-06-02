@@ -3,7 +3,7 @@ updates:
 - package-ecosystem: npm
   directory: "/"
   schedule:
-    interval: monthly
+    interval: yearly
   open-pull-requests-limit: 10
   versioning-strategy: increase
   ignore:
